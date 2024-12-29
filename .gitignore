@@ -1,0 +1,10 @@
+# Nothing allowed except for jupyter notebooks, the slides, and support files.
+*
+!.gitignore
+!README.md
+!requirements.txt
+!/LICENSE
+!/slides.pdf
+!TimeDomain
+!FrequencyDomain
+!*/*.ipynb
