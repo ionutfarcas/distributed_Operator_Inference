@@ -18,16 +18,33 @@ See [slides.pdf (**TODO**)](./slides.pdf) for the presentation slides-->.
 ## Installation
 
 The code is written in Python.
-We recommend creating a new `conda` environment and installing the prerequisites listed in [requirements.txt](./requirements.txt).
+I recommend creating a new `conda` environment and installing the prerequisites listed in [requirements.txt](./requirements.txt).
 
 ```shell
 $ conda deactivate                                      # Deactivate any current environments.
-$ conda create -n distributed-OpInf python=3.11          # Create a new environment.
+$ conda create -n distributed-OpInf python=3.11         # Create a new environment.
 $ conda activate distributed-OpInf                      # Activate the new environment.
 (cse-minitutorial) $ pip install -r requirements.txt    # Install required packages.
 ```
 
 Alternatively, create a new virtual environment with `venv`.
+
+You will also need mpi4py to run the code.
+To install mpi4py within the distributed-OpInf virtual environment, you first need to make sure you have an MPI implementation an your system.
+On a Debian-based OS, for example, you can install OpenMPI as
+```shell
+$ sudo apt-get install libopenmpi-dev
+```
+followed by
+```shell
+$ env MPICC=/yourpath/mpicc pip3 install mpi4py
+```
+
+Alternatively,
+``` shell
+$ conda install mpi4py
+```
+should do the trick.
 
 <!--If you wish to run the -->
 
