@@ -32,7 +32,7 @@ $ conda activate distributed-OpInf                      # Activate the new envir
 Alternatively, create a new virtual environment with `venv`.
 
 You will also need mpi4py to run the code.
-To install mpi4py within the distributed-OpInf virtual environment, you first need to make sure you have an MPI implementation an your system.
+To install mpi4py within the <em>distributed-OpInf</em> virtual environment, you first need to make sure you have an MPI implementation an your system.
 On a Debian-based OS, for example, you can install OpenMPI as
 ```shell
 $ sudo apt-get install libopenmpi-dev
@@ -51,5 +51,5 @@ should install all required dependencies for mpi4py.
 <!--If you wish to run the -->
 
 ## References
-- Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., "Distributed computing for physics-based data-driven reduced
-modeling at scale: Application to a rotating detonation rocket engine" arXiv:2407.09994 (https://arxiv.org/abs/2407.09994)
+- Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., <em>Distributed computing for physics-based data-driven reduced
+modeling at scale: Application to a rotating detonation rocket engine,</em> 2024. arXiv:2407.09994 (https://arxiv.org/abs/2407.09994)
