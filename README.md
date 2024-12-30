@@ -47,8 +47,9 @@ $ conda install mpi4py
 ```
 should install mpi4py + all required dependencies.
 
-<!--If you wish to run the -->
+For running the high fidelity code via the script [**generate_high_fidelity_data.py**](./high_fidelity_code/generate_high_fidelity_data.py), you will need to install [fenics](https://fenicsproject.org/) on your system. To this end, you can follow the steps summarized [here](https://fenicsproject.org/download/archive/).
+
 
 ## References
-- [1] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., <em>Distributed computing for physics-based data-driven reduced
+[1] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., <em>Distributed computing for physics-based data-driven reduced
 modeling at scale: Application to a rotating detonation rocket engine,</em> 2024. arXiv:2407.09994 (https://arxiv.org/abs/2407.09994)
