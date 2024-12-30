@@ -32,5 +32,5 @@ Alternatively, create a new virtual environment with `venv`.
 <!--If you wish to run the -->
 
 ## References
-[Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., ``Distributed computing for physics-based data-driven reduced
-modeling at scale: Application to a rotating detonation rocket engine" arXiv:2407.09994] (https://arxiv.org/abs/2407.09994)
+Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., ``Distributed computing for physics-based data-driven reduced
+modeling at scale: Application to a rotating detonation rocket engine" arXiv:2407.09994 (https://arxiv.org/abs/2407.09994)
