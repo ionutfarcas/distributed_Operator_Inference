@@ -8,9 +8,13 @@ March 2025, Fort Worth, TX -->
 
 ## Contents
 
-- [**sequential_OpInf.py/**](./sequential_OpInf.py) script that contains a reference, serial implementation of OpInf
-- [**distributed_OpInf.py/**](./distributed_OpInf.py) script that contains the distributed memory implementation of dOpInf based on MPI
-- [**config/**](/config/) contains the config file
+- [**sequential_OpInf.py**](./sequential_OpInf.py) script that contains a reference, serial implementation of OpInf
+- [**distributed_OpInf.py**](./distributed_OpInf.py) script that contains the distributed memory implementation of dOpInf based on MPI
+- [**config/**](/config/) contains the config file ([**config.py**](/config/config.py) for setting up
+- [**navier_stokes_benchmark/**](/navier_stokes_benchmark/) contains the training data in HDF5 format for the considered 2D Navier-Stokes example
+- [*utils/**](/utils/) contains a script ([**utils.py**](/utils/utils.py) with several auxiliary functions used in the sequential and distributed OpInf implementations
+- [*postprocessing/**](/postprocessing/) folder that contains several utilities for postprocessing the reduced model solution
+- [*runtimes/**](/runtimes/) option to save total CPU times of sequential and distributed OpInf implementations for, e.g., scaling studies (see the first few lines of code in the [**sequential_OpInf.py**](./sequential_OpInf.py) and [**distributed_OpInf.py**](./distributed_OpInf.py) scripts)
 
 
 ## Installation
@@ -35,7 +39,7 @@ $ sudo apt-get install libopenmpi-dev
 ```
 followed by
 ```shell
-$ env MPICC=/yourpath/mpicc pip3 install mpi4py
+$ env MPICC=/yourpath/mpicc pip install mpi4py
 ```
 
 Alternatively,
@@ -47,5 +51,5 @@ should install all required dependencies for mpi4py.
 <!--If you wish to run the -->
 
 ## References
-Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., "Distributed computing for physics-based data-driven reduced
+- Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., "Distributed computing for physics-based data-driven reduced
 modeling at scale: Application to a rotating detonation rocket engine" arXiv:2407.09994 (https://arxiv.org/abs/2407.09994)
