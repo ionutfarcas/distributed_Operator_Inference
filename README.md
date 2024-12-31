@@ -1,8 +1,8 @@
 # Distributed Operator Inference (dOpInf)
 
 Distributed Operator Inference (dOpInf) [[1]](#References) is an algorithm for fast and scalable construction of predictive physics-based reduced-order models (ROMs) trained from data sets of extremely large state dimension.
-The algorithm learns structured physics-based ROMs [3] that approximate the dynamical systems underlying those data sets
-This repository provides a step-by-step tutorial using a 2D Navier-Stokes flow over a step scenario as a case study based on Ref. [2].
+The algorithm learns structured physics-based ROMs [[3]](#References) that approximate the dynamical systems underlying those data sets
+This repository provides a step-by-step tutorial using a 2D Navier-Stokes flow over a step scenario as a case study based on Ref. [[2]](#References).
 The goal of this tutorial is to guide users through the implementation process and make dOpInf accessible for integration into complex application scenarios.
 
 ## Contents
