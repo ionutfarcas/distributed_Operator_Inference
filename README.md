@@ -1,6 +1,6 @@
 # Distributed Operator Inference (dOpInf)
 
-Distributed Operator Inference (dOpInf) [1] is an algorithm for fast and scalable construction of predictive physics-based reduced-order models (ROMs) trained from data sets of extremely large state dimension.
+Distributed Operator Inference (dOpInf) [1] [references] is an algorithm for fast and scalable construction of predictive physics-based reduced-order models (ROMs) trained from data sets of extremely large state dimension.
 The algorithm learns structured physics-based ROMs [3] that approximate the dynamical systems underlying those data sets
 This repository provides a step-by-step tutorial using a 2D Navier-Stokes flow over a step scenario as a case study based on Ref. [2].
 The goal of this tutorial is to guide users through the implementation process and make dOpInf accessible for integration into complex application scenarios.
@@ -87,7 +87,7 @@ $ mpirun -n <number_of_processes> python3 distributed_OpInf.py
 #### Running the high-fidelity 2D Navier-Stokes code
 For running the high fidelity code via the script [**generate_high_fidelity_data.py**](./high_fidelity_code/generate_high_fidelity_data.py), you will need to install [FEniCS](https://fenicsproject.org/) on your system. To this end, you can follow the steps summarized [here](https://fenicsproject.org/download/archive/).
 
-## References
+## References [references]
 [1] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., "Distributed computing for physics-based data-driven reduced
 modeling at scale: Application to a rotating detonation rocket engine," 2024. arXiv:2407.09994 (https://arxiv.org/abs/2407.09994)
 
