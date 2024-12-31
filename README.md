@@ -85,7 +85,7 @@ $ mpirun -n <number_of_processes> python3 distributed_OpInf.py
 ```
 
 #### Running the high-fidelity 2D Navier-Stokes code
-For running the high fidelity code via the script [**generate_high_fidelity_data.py**](./high_fidelity_code/generate_high_fidelity_data.py), you will need to install [FEniCS](https://fenicsproject.org/) on your system. To this end, you can follow the steps summarized [here](https://fenicsproject.org/download/archive/).
+For running the high fidelity code via the script [**generate_high_fidelity_data.py**](./high_fidelity_code/generate_high_fidelity_data.py), you will need to install [FEniCS](https://fenicsproject.org/) on your system. For this, you can follow the steps summarized [here](https://fenicsproject.org/download/archive/).
 
 ## References
 [1] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., "Distributed computing for physics-based data-driven reduced
