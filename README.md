@@ -89,9 +89,9 @@ For running the high fidelity code via the script [**generate_high_fidelity_data
 
 ## References
 [1] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., "Distributed computing for physics-based data-driven reduced
-modeling at scale: Application to a rotating detonation rocket engine," 2024. arXiv:2407.09994 (https://arxiv.org/abs/2407.09994)
+modeling at scale: Application to a rotating detonation rocket engine," 2024, arXiv:2407.09994. (https://arxiv.org/abs/2407.09994)
 
-[2] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., "A Parallel Implementation of Reduced-Order Modeling of Large-Scale Systems," <em>In Proceedings of AIAA SciTech Forum & Exhibition, Orlando, FL, January 2025, Session: PC-15, High Performance Computing</em>
+[2] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., "A Parallel Implementation of Reduced-Order Modeling of Large-Scale Systems," <em>In Proceedings of AIAA SciTech Forum & Exhibition, Orlando, FL, January 2025, Session: PC-15, High Performance Computing.</em>
 
 [3] Peherstorfer, B., and Willcox, K., "Data-driven operator inference for nonintrusive projection-based model reduction," <em>Computer
 Methods in Applied Mechanics and Engineering</em>, Vol. 306, 2016, pp. 196–215. https://doi.org/https://doi.org/10.1016/j.cma.2016.03.025.
