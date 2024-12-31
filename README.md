@@ -50,7 +50,7 @@ Alternatively,
 $ conda install mpi4py
 ```
 should install mpi4py + all required dependencies.
-If there are any problems with dependencies,
+In general, if there are any problems with dependencies,
 ``` shell
 $ conda install package_name
 ```
