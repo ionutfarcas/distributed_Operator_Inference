@@ -74,11 +74,11 @@ $ jupyter-notebook distributed_OpInf_tutorial_2D_Navier_Stokes.ipynb
 
 The script that implements dOpInf ([**distributed_OpInf.py**](./distributed_OpInf.py)) can be run as
 ``` shell
-$ mpiexec -n <number_of_processes> distributed_OpInf.py
+$ mpiexec -n <number_of_processes> python3 distributed_OpInf.py
 ```
 or
 ``` shell
-$ mpirun -n <number_of_processes> distributed_OpInf.py
+$ mpirun -n <number_of_processes> python3 distributed_OpInf.py
 ```
 
 #### Running the high-fidelity 2D Navier-Stokes code
