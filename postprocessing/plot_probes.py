@@ -10,8 +10,7 @@ if __name__ == '__main__':
 	t_end 	= 10
 	t_train = 7
 	dt 		= 5e-3 
-
-	t = np.arange(t_start, t_end, dt)
+	t 		= np.arange(t_start, t_end, dt)
 
 	ref_data_var1_loc1 = np.load('ref_data/ref_probe_1_var_1.npy')
 	ref_data_var1_loc2 = np.load('ref_data/ref_probe_2_var_1.npy')
@@ -29,12 +28,10 @@ if __name__ == '__main__':
 	dOpInf_data_var2_loc2 = np.load('dOpInf_postprocessing/dOpInf_probe_2_var_2.npy')
 	dOpInf_data_var2_loc3 = np.load('dOpInf_postprocessing/dOpInf_probe_3_var_2.npy')
 
-
 	rcParams['lines.linewidth'] = 0
-	rc("figure", dpi=400)           # High-quality figure ("dots-per-inch")
-	# rc("text", usetex=True)         # Crisp ax1is ticks
-	rc("font", family="serif")      # Crisp ax1is labels
-	rc("legend", edgecolor='none')  # No boxes around legends
+	rc("figure", dpi=400)      
+	rc("font", family="serif")  
+	rc("legend", edgecolor='none')
 	rcParams["figure.figsize"] = (8, 4)
 	rcParams.update({'font.size': 8})
 
@@ -56,7 +53,6 @@ if __name__ == '__main__':
 	rc("text",color='k')
 	rc("xtick",color='k')
 	rc("ytick",color='k')
-
 
 	ax11.spines['right'].set_visible(False)
 	ax11.spines['top'].set_visible(False)
@@ -121,14 +117,12 @@ if __name__ == '__main__':
 	ax12.set_title('probe 2 (0.6, 0.2)')
 	ax13.set_title('probe 3 (1.0, 0.2)')
 
-	ax11.set_ylabel(r'$v_x$')
-	ax21.set_ylabel(r'$v_y$')
+	ax11.set_ylabel(r'$u_x$')
+	ax21.set_ylabel(r'$u_y$')
 
 	fig.supxlabel('target time horizon (seconds)')
 
-
-
-	# cosmetics
+	## 
 	xlim = ax11.get_xlim()
 	ax11.set_xlim([xlim[0], 10])
 	ax21.set_xlim([xlim[0], 10])
@@ -145,7 +139,6 @@ if __name__ == '__main__':
 	ax12.add_patch(rect)
 	rect = Rectangle((0, 0), width=t_train, height=1.25, hatch='/', color='grey', alpha=0.2, label='training region')
 	ax13.add_patch(rect)
-
 
 	rect = Rectangle((0, -0.4), width=t_train, height=0.8, hatch='/', color='grey', alpha=0.2, label='training region')
 	ax21.add_patch(rect)

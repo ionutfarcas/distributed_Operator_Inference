@@ -165,7 +165,7 @@ if __name__ == '__main__':
 	# dictionary to store the regularization pair for each training error
 	opt_train_err_reg_pair 			= {}
 	# dictionary to store the reduced solutions over the target time horizon for each training error
-	Qtilde_OpInf_reg_pair 			= {}
+	Qtilde_dOpInf_reg_pair 			= {}
 	# dictionary to store the OpInf reduced model learning time for each training error
 	OpInf_wtime_learning_reg_pair 	= {}
 	# dictionary to store the OpInf reduced model evaluation time for each training error
@@ -205,7 +205,7 @@ if __name__ == '__main__':
 		
 		# compute the reduced solution over the trial time horizon, which here is the same as the target time horizon
 		start_time_OpInf_eval 			= MPI.Wtime()
-		contains_nans, Qtilde_OpInf 	= solve_opinf_difference_model(qhat0, nt_p, dOpInf_red_model)
+		contains_nans, Qtilde_dOpInf 	= solve_opinf_difference_model(qhat0, nt_p, dOpInf_red_model)
 		end_time_OpInf_eval 			= MPI.Wtime()
 
 		time_OpInf_learning = end_time_OpInf_learning - start_time_OpInf_learning
@@ -217,21 +217,21 @@ if __name__ == '__main__':
 		# we also save the corresponding reduced solution, learning time and ROM evaluation time
  		# and compute the ratio of maximum coefficient growth in the trial period to that in the training period
 		if contains_nans == False:
-			train_err     			= compute_train_err(Qhat_global.T[:nt, :], Qtilde_OpInf[:nt, :])
-			max_diff_Qhat_trial  	= np.max(np.abs(Qtilde_OpInf - mean_Qhat_train), axis=0)			
+			train_err     			= compute_train_err(Qhat_global.T[:nt, :], Qtilde_dOpInf[:nt, :])
+			max_diff_Qhat_trial  	= np.max(np.abs(Qtilde_dOpInf - mean_Qhat_train), axis=0)			
 			max_growth_trial  		= np.max(max_diff_Qhat_trial)/np.max(max_diff_Qhat_train)
 
 			if max_growth_trial < max_growth:
 				opt_train_err 									= train_err
 				opt_train_err_reg_pair[opt_train_err] 			= pair
-				Qtilde_OpInf_reg_pair[opt_train_err] 			= Qtilde_OpInf
+				Qtilde_dOpInf_reg_pair[opt_train_err] 			= Qtilde_dOpInf
 				OpInf_wtime_learning_reg_pair[opt_train_err]	= time_OpInf_learning
 				OpInf_ROM_wtime_reg_pair[opt_train_err]			= time_OpInf_eval
 
 		else:
 			opt_train_err 									= 1e20
 			opt_train_err_reg_pair[opt_train_err] 			= pair
-			Qtilde_OpInf_reg_pair[opt_train_err] 			= Qtilde_OpInf
+			Qtilde_dOpInf_reg_pair[opt_train_err] 			= Qtilde_dOpInf
 			OpInf_wtime_learning_reg_pair[opt_train_err]	= time_OpInf_learning
 			OpInf_ROM_wtime_reg_pair[opt_train_err]			= time_OpInf_eval
 
@@ -256,7 +256,7 @@ if __name__ == '__main__':
 	if opt_key_rank == opt_key_global:
 
 		rank_reg_opt 		= rank
-		Qtilde_OpInf_opt 	= Qtilde_OpInf_reg_pair[opt_key_global]
+		Qtilde_dOpInf_opt 	= Qtilde_dOpInf_reg_pair[opt_key_global]
 
 		reg_pair_opt = opt_train_err_reg_pair[opt_key_global]
 
@@ -267,7 +267,7 @@ if __name__ == '__main__':
 		OpInf_ROM_wtime_opt 		= OpInf_ROM_wtime_reg_pair[opt_key_global]
 	else:
 		rank_reg_opt	 = -1
-		Qtilde_OpInf_opt = None
+		Qtilde_dOpInf_opt = None
 
 	end_time_extract_opt_sol 		= MPI.Wtime()
 	compute_time_grid_search_total	+= end_time_extract_opt_sol - start_time_extract_opt_sol
@@ -282,9 +282,9 @@ if __name__ == '__main__':
 		if rank == rank_reg_opt:
 			for i in range(size):
 				if i != rank_reg_opt:
-					comm.send(Qtilde_OpInf_opt, dest=i)
+					comm.send(Qtilde_dOpInf_opt, dest=i)
 		else:
-			Qtilde_OpInf_opt = comm.recv(Qtilde_OpInf_opt, source=rank_reg_opt)
+			Qtilde_dOpInf_opt = comm.recv(Qtilde_dOpInf_opt, source=rank_reg_opt)
 
 		if POSTPROC_FULL_DOM_SOL:
 			# compute the components of the POD basis vectors on each rank
@@ -295,7 +295,7 @@ if __name__ == '__main__':
 				Phir_full_state 			= Phir_rank[target_var_index*nx_i : (target_var_index + 1)*nx_i, :]
 				temporal_mean_full_state 	= temporal_mean_rank[target_var_index*nx_i : (target_var_index + 1)*nx_i]
 
-				full_state_rec = Phir_full_state @ Qtilde_OpInf_opt.T[:, target_time_instants] + temporal_mean_full_state[:, np.newaxis]
+				full_state_rec = Phir_full_state @ Qtilde_dOpInf_opt.T[:, target_time_instants] + temporal_mean_full_state[:, np.newaxis]
 				full_state_rec = comm.gather(full_state_rec, root=0)
 
 				if rank == 0:
@@ -318,7 +318,7 @@ if __name__ == '__main__':
 						 # same for the temporal mean used for centering
 						temporal_mean_probe = temporal_mean_rank[probe_index + target_var_index*nx_i]
 
-						var_probe_prediction = Phir_probe @ Qtilde_OpInf_opt.T + temporal_mean_probe
+						var_probe_prediction = Phir_probe @ Qtilde_dOpInf_opt.T + temporal_mean_probe
 
 						np.save('postprocessing/dOpInf_postprocessing/dOpInf_probe_' + str(j + 1) + '_var_' + str(target_var_index + 1) + '.npy', var_probe_prediction)
 

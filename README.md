@@ -1,5 +1,6 @@
 # Distributed Operator Inference (dOpInf)
 
+A Parallel Implementation of Reduced-Order Modeling of Large-Scale Systems, AIAA SciTech Forum 2025, Session: PC-15, High Performance Computing
 
 ## Contents
 
@@ -23,7 +24,7 @@ I recommend creating a new `conda` environment and installing the prerequisites 
 
 ```shell
 $ conda deactivate                                      # Deactivate any current environments.
-$ conda create -n distributed-OpInf python=3.11         # Create a new environment.
+$ conda create -n distributed-OpInf python=3.12         # Create a new environment.
 $ conda activate distributed-OpInf                      # Activate the new environment.
 (distributed-OpInf) $ pip install -r requirements.txt   # Install required packages.
 ```
@@ -46,10 +47,35 @@ Alternatively,
 $ conda install mpi4py
 ```
 should install mpi4py + all required dependencies.
+If there are any problems with dependencies,
+``` shell
+$ conda install package_name
+```
+should do the trick.
+
+
+## Running the code
+
+### Running the Jupyter Notebook in parallel
+To run the Jupyter Notebook in parallel, you will also need [IPython](https://ipyparallel.readthedocs.io/en/latest/) for parallel computing.
+This can be installed as
+``` shell
+$ conda install ipyparallel
+```
+You then need to start a cluster (collection of IPython engines to use in parallel) to run the Notebook in parallel.
+This is done via
+``` shell
+$ mpiexec -n <number_of_processes> ipcluster start -n <number_of_engines>
+```
+Finally, open the Jupyter Notebook as
+``` shell
+$ jupyter-notebook distributed_OpInf_tutorial_2D_Navier_Stokes.ipynb
+```
 
 For running the high fidelity code via the script [**generate_high_fidelity_data.py**](./high_fidelity_code/generate_high_fidelity_data.py), you will need to install [fenics](https://fenicsproject.org/) on your system. To this end, you can follow the steps summarized [here](https://fenicsproject.org/download/archive/).
 
-
 ## References
-[1] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., <em>Distributed computing for physics-based data-driven reduced
+[1] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., <em>A Parallel Implementation of Reduced-Order Modeling of Large-Scale Systems,</em> 2025. AIAA SciTech Forum 2025, Orlando FL, USA (https://www.aiaa.org/SciTech?SSO=Y)
+
+[2] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., <em>Distributed computing for physics-based data-driven reduced
 modeling at scale: Application to a rotating detonation rocket engine,</em> 2024. arXiv:2407.09994 (https://arxiv.org/abs/2407.09994)
