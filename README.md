@@ -1,8 +1,8 @@
 # Distributed Operator Inference (dOpInf)
 
-Distributed Operator Inference (dOpInf) [1] is an algorithm for fast and scalable construction of predictive physics-based reduced-order models (ROMs) trained from data sets of extremely large state dimension.
-The algorithm learns structured physics-based ROMs [3] that approximate the dynamical systems underlying those data sets
-This repository provides a step-by-step tutorial using a 2D Navier-Stokes flow over a step scenario as a case study based on Ref. [2].
+Distributed Operator Inference (dOpInf) [1](1) is an algorithm for fast and scalable construction of predictive physics-based reduced-order models (ROMs) trained from data sets of extremely large state dimension.
+The algorithm learns structured physics-based ROMs [3](3) that approximate the dynamical systems underlying those data sets
+This repository provides a step-by-step tutorial using a 2D Navier-Stokes flow over a step scenario as a case study based on Ref. [2](2).
 The goal of this tutorial is to guide users through the implementation process and make dOpInf accessible for integration into complex application scenarios.
 
 ## Contents
@@ -91,7 +91,7 @@ For running the high fidelity code via the script [**generate_high_fidelity_data
 [1] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., "Distributed computing for physics-based data-driven reduced
 modeling at scale: Application to a rotating detonation rocket engine," 2024. arXiv:2407.09994 (https://arxiv.org/abs/2407.09994)
 
-[2] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., "A Parallel Implementation of Reduced-Order Modeling of Large-Scale Systems," <em>In Proceedings of AIAA SciTech Forum & Exhibition, Orlando, FL, January 2025</em> (https://www.aiaa.org/SciTech?SSO=Y)
+[2] Farcas, I.-G., Gundevia, R. P., Munipalli, R., and Willcox, K. E., "A Parallel Implementation of Reduced-Order Modeling of Large-Scale Systems," <em>In Proceedings of AIAA SciTech Forum & Exhibition, Orlando, FL, January 2025, Session: PC-15, High Performance Computing</em>
 
 [3] Peherstorfer, B., and Willcox, K., "Data-driven operator inference for nonintrusive projection-based model reduction," <em>Computer
 Methods in Applied Mechanics and Engineering</em>, Vol. 306, 2016, pp. 196–215. https://doi.org/https://doi.org/10.1016/j.cma.2016.03.025.
