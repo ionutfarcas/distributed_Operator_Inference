@@ -7,10 +7,10 @@ The goal of this tutorial is to guide users through the implementation process a
 
 ## Contents
 
+- [**navier_stokes_benchmark/**](/navier_stokes_benchmark/) containing the training data in HDF5 format for the considered 2D Navier-Stokes example
+- [**config/**](/config/) contains the config file [**config.py**](/config/config.py) for setting up
 - [**sequential_OpInf.py**](./sequential_OpInf.py) script containing a reference, serial implementation of OpInf
 - [**distributed_OpInf.py**](./distributed_OpInf.py) script containing the distributed memory implementation of dOpInf based on MPI
-- [**config/**](/config/) contains the config file [**config.py**](/config/config.py) for setting up
-- [**navier_stokes_benchmark/**](/navier_stokes_benchmark/) containing the training data in HDF5 format for the considered 2D Navier-Stokes example
 - [**utils/**](/utils/) contains a script [**utils.py**](/utils/utils.py) with several auxiliary functions used in the sequential and distributed OpInf implementations
 - [**postprocessing/**](/postprocessing/) folder containing several utilities for postprocessing the reduced model solution
 - [**runtimes/**](/runtimes/) option to save total CPU times of sequential and distributed OpInf implementations for, e.g., scaling studies (see the first few lines in the [**sequential_OpInf.py**](./sequential_OpInf.py) and [**distributed_OpInf.py**](./distributed_OpInf.py) scripts)
@@ -59,23 +59,24 @@ should do the trick.
 ## Running the code
 
 #### Running the Jupyter Notebook in parallel
-To run the Jupyter Notebook in parallel, you will also need [IPython](https://ipyparallel.readthedocs.io/en/latest/) for parallel computing.
+To run the Jupyter Notebook in parallel, you will also need [IPython Parallel](https://ipyparallel.readthedocs.io/en/latest/) for parallel computing.
 This can be installed as
 ``` shell
 $ conda install ipyparallel
 ```
 You then need to start a cluster (collection of IPython engines to use in parallel) to run the Notebook in parallel via
 ``` shell
-$ mpiexec -n <number_of_processes> ipcluster start -n <number_of_engines>
+$ ipcluster start -n <number_of_engines>
 ```
-Finally, open the Jupyter Notebook as
+followed by opening the Jupyter Notebook in a separate terminal windown as
 ``` shell
 $ jupyter-notebook distributed_OpInf_tutorial_2D_Navier_Stokes.ipynb
 ```
+A more detailed documentation for using IPython Parallel can be found [here])(https://ipyparallel.readthedocs.io/en/6.1.1/intro.html).
 
 #### Running the script that implements dOpInf in parallel
 
-The script that implements dOpInf ([**distributed_OpInf.py**](./distributed_OpInf.py)) can be run as
+The standalone script that implements dOpInf ([**distributed_OpInf.py**](./distributed_OpInf.py)) in the considered 2D Navier-Stokes example can be run as
 ``` shell
 $ mpiexec -n <number_of_processes> python3 distributed_OpInf.py
 ```
@@ -83,6 +84,7 @@ or
 ``` shell
 $ mpirun -n <number_of_processes> python3 distributed_OpInf.py
 ```
+This script provides very similar functionality as the Jupyter Notebook.
 
 #### Running the high-fidelity 2D Navier-Stokes code
 For running the high fidelity code via the script [**generate_high_fidelity_data.py**](./high_fidelity_code/generate_high_fidelity_data.py), you will need to install [FEniCS](https://fenicsproject.org/) on your system. For this, you can follow the steps summarized [here](https://fenicsproject.org/download/archive/).
