@@ -27,7 +27,7 @@ I recommend creating a new `conda` environment and installing the prerequisites 
 
 ```shell
 $ conda deactivate                                      # Deactivate any current environments.
-$ conda create -n distributed-OpInf python=3.12         # Create a new environment.
+$ conda create -n distributed-OpInf python=3.11         # Create a new environment.
 $ conda activate distributed-OpInf                      # Activate the new environment.
 (distributed-OpInf) $ pip install -r requirements.txt   # Install required packages.
 ```
