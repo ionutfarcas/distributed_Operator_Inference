@@ -2,5 +2,4 @@ jupyter
 numpy
 scipy
 h5py
-itertools
 matplotlib
